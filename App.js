@@ -2,9 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View,Image,Alert,SafeAreaView,ScrollView,TouchableOpacity } from 'react-native';
 
+
 import Button from './components/Button'
 import CardSound from "./components/cardSound";
 import Tag from "./components/Tag"
+import Album from "./components/album"
+
+
+import Camp from './assets/image/album1.png'
+
+
 
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
@@ -12,7 +19,7 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
 export default function App() {
   return (
-    <View  style={styles.body}>
+    <ScrollView  style={styles.body}>
       <SafeAreaView style={styles.viewSave}>
         <View  style={styles.boxButton}>
           <Button text = {"Press Me"} onPress = {()=>{Alert.alert('Press Me')}}/>
@@ -119,7 +126,28 @@ export default function App() {
           <Tag text = {"All"} icon ={<FontAwesome name="female" size={15} color="#fff" />}/>
         </View>
       </View>
+
+    <View style={styles.bodyAlbums}>
+      <View style={styles.listAlbums}>
+        <Album marginAlbums={{marginRight:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
+        <Album marginAlbums={{marginLeft:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
+      </View>
+      <View style={styles.listAlbums}>
+        <Album marginAlbums={{marginRight:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
+        <Album marginAlbums={{marginLeft:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
+      </View>
+      <View style={styles.listAlbums}>
+        <Album marginAlbums={{marginRight:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
+        <Album marginAlbums={{marginLeft:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
+      </View>
+      <View style={styles.listAlbums}>
+        <Album marginAlbums={{marginRight:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
+        <Album marginAlbums={{marginLeft:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
+      </View>
     </View>
+
+      
+    </ScrollView>
   );
 }
 
@@ -142,5 +170,18 @@ const styles = StyleSheet.create({
   listCategory:{
     flexWrap: "nowrap",
     flexDirection: "row"
+  },
+  listAlbums:{
+    flexWrap: "nowrap",
+    flexDirection: "row"
+  },
+  bodyAlbums:{
+    flex:1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // justifyContent: 'space-around'
+
+
   }
+
 });
