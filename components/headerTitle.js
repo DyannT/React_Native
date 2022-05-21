@@ -10,9 +10,6 @@ const headerTitle = ({text}) => {
         <View style={{marginLeft:16,marginTop:88}}>
             <Text style={styles.headerText}>{text}</Text>
         </View>
-        <View>
-          
-        </View>
     </View>
   )
 }
