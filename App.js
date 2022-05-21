@@ -1,15 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View,Image,Alert,SafeAreaView,ScrollView,TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View,SafeAreaView,Button } from 'react-native'
 
-
-import Button from './components/Button'
-import CardSound from "./components/cardSound";
-import Tag from "./components/Tag"
-import Album from "./components/album"
-
-
-import Camp from './assets/image/album1.png'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 
@@ -17,171 +10,129 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-export default function App() {
+import Composer from './screen/Composer'
+import SleepScreen from './screen/SleepScreen'
+import Profile from './screen/Profile'
+
+
+import React from 'react'
+
+
+
+const Tab = createBottomTabNavigator();
+
+
+const App = () => {
   return (
-    <ScrollView  style={styles.body}>
-      <SafeAreaView style={styles.viewSave}>
-        <View  style={styles.boxButton}>
-          <Button text = {"Press Me"} onPress = {()=>{Alert.alert('Press Me')}}/>
-        </View>
-        <View  style={styles.boxButton}>
-          <Button text = {"Next"}  onPress = {()=>{Alert.alert('Next')}}/>
-        </View>
-      </SafeAreaView>
 
-    <ScrollView horizontal = {true} showsHorizontalScrollIndicator={false}>
-      <View style={styles.libraryCard}>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Female Voice"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"While noize"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Lullaby"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Forest"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Ocean"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Bird"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-        <CardSound text = {"Cat"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-        <CardSound text = {"Ford"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-      </View>
-    </ScrollView>
-    <ScrollView horizontal = {true} showsHorizontalScrollIndicator={false}>
-      <View style={styles.libraryCard}>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Female Voice"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"While noize"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Lullaby"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Forest"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Ocean"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Bird"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-        <CardSound text = {"Cat"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-        <CardSound text = {"Ford"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-      </View>
-    </ScrollView>
-    <ScrollView horizontal = {true} showsHorizontalScrollIndicator={false}>
-      <View style={styles.libraryCard}>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Female Voice"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"While noize"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Lullaby"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Forest"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Ocean"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-            <CardSound text = {"Bird"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-        <CardSound text = {"Cat"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-        <View style={{marginRight:16}}>
-        <CardSound text = {"Ford"} icon ={<FontAwesome name="female" size={30} color="#fff" />}/>
-        </View>
-      </View>
-    </ScrollView>
-    
+    <NavigationContainer>
+     <Tab.Navigator screenOptions={{
+        tabBarShowLabel: true,
+        tabBarLabelStyle: {
+          fontSize: 12,
+        },
+        tabBarActiveTintColor: "#4870FF",
+        tabBarInactiveTintColor: "#8E8E93",
+        tabBarShadowVisible: false,
+        // Floating Tab Bar...
+        tabBarStyle: {
+          backgroundColor: "rgba(33, 40, 63, 1)",
+          position: "relative",
+          bottom: 0,
+          marginHorizontal: 0,
+          // Max Height...
+          height: 60,
+          // Shadow...
+          shadowColor: "red",
+          borderBottomWidth: 0,
+          borderTopWidth: 0,
+          elevation: 0,
+          shadowOpacity: 0,
+          shadowOffset: {
+            width: 0,
+            height: 0,
+          },
+          padding: 0,
+          paddingBottom: 10,
+        },
+      }}>
+       <Tab.Screen name="Discover" component={SleepScreen} 
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                // centring Tab Button...
+                position: "absolute",
+                top: 10,
+              }}
+            >
+              <FontAwesome5
+                name="home"
+                size={20}
+                color={focused ? "#4870FF" : "#8E8E93"}
+              ></FontAwesome5>
+            </View>
+          ),
+        }} />
+       <Tab.Screen name="Composer" component={Composer} 
+       options={{
+        headerShown: false,
+        tabBarIcon: ({ focused }) => (
+          <View
+            style={{
+              // centring Tab Button...
+              position: "absolute",
+              top: 10,
+            }}
+          >
+            <FontAwesome
+              name="music"
+              size={20}
+              color={focused ? "#4870FF" : "#8E8E93"}
+            ></FontAwesome>
+          </View>
+        ),
+      }}/>
+      <Tab.Screen name="Profile" component={Profile} 
+       options={{
+        headerShown: false,
+        tabBarIcon: ({ focused }) => (
+          <View
+            style={{
+              // centring Tab Button...
+              position: "absolute",
+              top: 10,
+            }}
+          >
+            <FontAwesome
+              name="user"
+              size={20}
+              color={focused ? "#4870FF" : "#8E8E93"}
+            ></FontAwesome>
+          </View>
+        ),
+      }}/>
+     </Tab.Navigator>
+   </NavigationContainer>
 
-      <View style={styles.listCategory}>
-        <View style={{marginRight:16}}>
-          <Tag text = {"All"} icon ={<FontAwesome name="female" size={15} color="#fff" />} />
-        </View>
-        <View style={{marginRight:16}}>
-          <Tag text= {"All"} icon ={<FontAwesome name="female" size={15} color="#fff" />} />
-        </View>
-        <View style={{marginRight:16}}>
-          <Tag text = {"All"} icon ={<FontAwesome name="female" size={15} color="#fff" />}/>
-        </View>
-      </View>
+  
+//   <NavigationContainer>
+//   <Tab.Navigator>
+//     <Tab.Screen name="Home" component={SleepScreen}  />
+//     <Tab.Screen name="Settings" component={SleepScreen} />
+//   </Tab.Navigator>
+// </NavigationContainer>
 
-    <View style={styles.bodyAlbums}>
-      <View style={styles.listAlbums}>
-        <Album marginAlbums={{marginRight:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
-        <Album marginAlbums={{marginLeft:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
-      </View>
-      <View style={styles.listAlbums}>
-        <Album marginAlbums={{marginRight:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
-        <Album marginAlbums={{marginLeft:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
-      </View>
-      <View style={styles.listAlbums}>
-        <Album marginAlbums={{marginRight:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
-        <Album marginAlbums={{marginLeft:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
-      </View>
-      <View style={styles.listAlbums}>
-        <Album marginAlbums={{marginRight:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
-        <Album marginAlbums={{marginLeft:8}} img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
-      </View>
-    </View>
 
-      
-    </ScrollView>
-  );
+  )
 }
 
+export default App
+
 const styles = StyleSheet.create({
-  body:{
+  container: {
     flex: 1,
-    backgroundColor:'#141927'
-  },
-  boxButton:{
-    marginVertical:10
-  },
-  viewSave:{
-    alignItems: 'center',
-    // justifyContent: 'center',
-  },
-  libraryCard:{
-    flexWrap: "nowrap",
-    flexDirection: "row"
-  },
-  listCategory:{
-    flexWrap: "nowrap",
-    flexDirection: "row"
-  },
-  listAlbums:{
-    flexWrap: "nowrap",
-    flexDirection: "row"
-  },
-  bodyAlbums:{
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    // justifyContent: 'space-around'
-
-
+    backgroundColor:'#090E18'
   }
-
-});
+})

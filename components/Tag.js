@@ -17,14 +17,15 @@ export default Tag
 
 const styles = StyleSheet.create({
     button:{
-        width:66,
+        minWidth:66,
         height:38,
         backgroundColor:'#4870FF',
         borderRadius: 19,
         alignItems: 'center',
         justifyContent: 'center',
         flexWrap: "nowrap",
-        flexDirection: "row"
+        flexDirection: "row",
+        paddingHorizontal:10
     },
     text:{
         fontStyle: 'normal',

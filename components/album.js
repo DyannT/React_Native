@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View,Image,TouchableOpacity,Dimensions } from 'react-native'
 import React,{useState} from 'react'
 // import Camp from '../assets/image/album1.png'
 import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
@@ -7,10 +7,9 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-const album = ({icon,img,textHeader,numberSongs,textType,marginAlbums,onPress}) => {
+const album = ({icon,img,textHeader,numberSongs,textType,marginSong,onPress}) => {
   return (
-        // const [active,setActive] = useState(true);
-    <View style={marginAlbums}>
+    <View style={{ paddingHorizontal: 8}}>
         <View style = {styles.album}>
             <Image style = {styles.pic} source={img} />
             <TouchableOpacity style = {styles.button}>
@@ -42,7 +41,6 @@ const styles = StyleSheet.create({
         borderRadius:16,
         borderColor: '#000',
         borderWidth:1,
-
     },
     pic:{
         width:410.26,
