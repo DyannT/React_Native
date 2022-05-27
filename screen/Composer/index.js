@@ -17,6 +17,21 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import Ionicons from "react-native-vector-icons/Ionicons"
 
 const index = () => {
+  const ListCard1 = [
+    {
+      text:'Female Voice',
+      nameIcon:"female"
+    },
+    {
+      text:'While noize',
+      nameIcon:"microphone"
+    },    {
+      text:'Lullaby',
+      nameIcon:"music"
+    }
+  ];
+
+
   return (
     <View style={styles.container}>
       <View>
@@ -29,7 +44,7 @@ const index = () => {
         </View>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={styles.libraryCard}>
-            <View style={{ marginRight: 16 }}>
+            {/* <View style={{ marginRight: 16 }}>
               <CardSound text={"Female Voice"} icon={<FontAwesome name="female" size={30} color="#fff" />} />
             </View>
             <View style={{ marginRight: 16 }}>
@@ -37,7 +52,16 @@ const index = () => {
             </View>
             <View style={{ marginRight: 16 }}>
               <CardSound text={"Lullaby"} icon={<FontAwesome name="music" size={30} color="#fff" />} />
-            </View>
+            </View> */}
+
+              {ListCard1.map((element,index) => {
+                  return (
+                    <View key={index} style={{ marginRight: 16 }}>
+                            <CardSound text={element.text}  icon={<FontAwesome name= {element.nameIcon} size={30} color="#fff" />} bColor = {"#4870FF"} />
+                    </View>
+                  );
+              })}
+
           </View>
         </ScrollView>
 
@@ -46,7 +70,7 @@ const index = () => {
         </View>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={styles.libraryCard}>
-            <View style={{ marginRight: 16 }}>
+            {/* <View style={{ marginRight: 16 }}>
               <CardSound text={"Rain"} icon={<Feather name="cloud-rain" size={30} color="#fff" />} />
             </View>
             <View style={{ marginRight: 16 }}>
@@ -60,7 +84,17 @@ const index = () => {
             </View>
             <View style={{ marginRight: 16 }}>
               <CardSound text={"Storm"} icon={<FontAwesome5 name="poo-storm" size={30} color="#fff" />} />
-            </View>
+            </View> */}
+
+              {ListCard1.map((element,index) => {
+                  return (
+                    <View key={index} style={{ marginRight: 16 }}>
+                            <CardSound text={element.text}  icon={<FontAwesome name= {element.nameIcon} size={30} color="#fff" />} bColor = {"#00D971"} />
+                    </View>
+                  );
+              })}
+
+
           </View>
         </ScrollView>
 
@@ -69,7 +103,7 @@ const index = () => {
         </View>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={styles.libraryCard}>
-            <View style={{ marginRight: 16 }}>
+            {/* <View style={{ marginRight: 16 }}>
               <CardSound text={"Birds"} icon={<FontAwesome5 name="kiwi-bird" size={30} color="#fff" />} />
             </View>
             <View style={{ marginRight: 16 }}>
@@ -77,7 +111,16 @@ const index = () => {
             </View>
             <View style={{ marginRight: 16 }}>
               <CardSound text={"Frogs"} icon={<FontAwesome5 name="frog" size={30} color="#fff" />} />
-            </View>
+            </View> */}
+
+              {ListCard1.map((element,index) => {
+                  return (
+                    <View key={index} style={{ marginRight: 16 }}>
+                            <CardSound text={element.text}  icon={<FontAwesome name= {element.nameIcon} size={30} color="#fff" />} bColor = {"#FF9C41"} />
+                    </View>
+                  );
+              })}
+
           </View>
         </ScrollView>
 
@@ -86,7 +129,7 @@ const index = () => {
         </View>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={styles.libraryCard}>
-            <View style={{ marginRight: 16 }}>
+            {/* <View style={{ marginRight: 16 }}>
               <CardSound text={"Train"} icon={<FontAwesome name="train" size={30} color="#fff" />} />
             </View>
             <View style={{ marginRight: 16 }}>
@@ -97,7 +140,16 @@ const index = () => {
             </View>
             <View style={{ marginRight: 16 }}>
               <CardSound text={"Caffe"} icon={<Feather name="coffee" size={30} color="#fff" />} />
-            </View>
+            </View> */}
+
+              {ListCard1.map((element,index) => {
+                  return (
+                    <View key={index} style={{ marginRight: 16 }}>
+                            <CardSound text={element.text}  icon={<FontAwesome name= {element.nameIcon} size={30} color="#fff" />} bColor = {"#FF2D55"} />
+                    </View>
+                  );
+              })}
+
             
           </View>
         </ScrollView>

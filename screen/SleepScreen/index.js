@@ -23,48 +23,50 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Ionicons from "react-native-vector-icons/Ionicons"
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 
 const SleepScreen = () => {
-  // const dataMusic = {
-  //   {
-  //     title: "Guitar Camp",
-  //     image: require("../../assets/images/album_01.png"),
-  //     numberSong: 7,
-  //     category: "Instrumental",
-  //   },
-  //   {
-  //     title: "Guitar Camp",
-  //     image: require("../../assets/images/album_01.png"),
-  //     numberSong: 7,
-  //     category: "Instrumental",
-  //   },
-  //   {
-  //     title: "Guitar Camp",
-  //     image: require("../../assets/images/album_01.png"),
-  //     numberSong: 7,
-  //     category: "Instrumental",
-  //   },
-  //   {
-  //     title: "Guitar Camp",
-  //     image: require("../../assets/images/album_01.png"),
-  //     numberSong: 7,
-  //     category: "Instrumental",
-  //   },
-  //   {
-  //     title: "Guitar Camp",
-  //     image: require("../../assets/images/album_01.png"),
-  //     numberSong: 7,
-  //     category: "Instrumental",
-  //   },
-  //   {
-  //     title: "Guitar Camp",
-  //     image: require("../../assets/images/album_01.png"),
-  //     numberSong: 7,
-  //     category: "Instrumental",
-  //   }
-
-  // }
+  const dataMusic = [
+    {
+      title: "Guitar Camp",
+      image: require("../../assets/image/album1.png"),
+      
+      image: require("../../assets/image/album1.png"),
+      numberSong: 7,
+      category: "Instrumental",
+    },
+    {
+      title: "Chill-hop",
+      image: require("../../assets/image/album2.png"),
+      numberSong: 7,
+      category: "Jaz",
+    },
+    {
+      title: "Pack name",
+      image:require("../../assets/image/album3.png"),
+      numberSong: 5,
+      category: "Ballad",
+    },
+    {
+      title: "Guitar Camp",
+      image:require("../../assets/image/album4.png"),
+      numberSong: 6,
+      category: "Instrumental",
+    },
+    {
+      title: "Guitar Camp",
+      image: require("../../assets/image/album5.png"),
+      numberSong: 12,
+      category: "Instrumental",
+    },
+    {
+      title: "Guitar Camp",
+      image:require("../../assets/image/album6.png"),
+      numberSong: 12,
+      category: "Instrumental",
+    },
+  ];
 
   return (
     <View style={styles.container}>
@@ -87,9 +89,10 @@ const SleepScreen = () => {
       </View>
 
       {/* List Album*/}
-      <View style = {{alignItems: 'center',justifyContent: 'center',marginTop:20}}>
-        <ScrollView style = {styles.listAlbums}>
-            <View style = {styles.albums}>
+      <ScrollView style = {[,styles.listAlbums]}>
+      {/* <View style = {{alignItems: 'center',justifyContent: 'center'}}>
+          <View style = {styles.albums}> */}
+            {/* <View style = >
               <Album img = {Camp} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Guitar Camp'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
               <Album img = {Moon} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Chill-hop'} numberSongs = {'7 Songs'} textType = {'Instrumental'} />
             </View>
@@ -102,10 +105,28 @@ const SleepScreen = () => {
             <View style = {styles.albums}>
               <Album img = {Moon1} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Pack name'} numberSongs = {'4 hours'} textType = {'Category name'} />
               <Album img = {Sea} icon={<FontAwesome name="play" size={12} color="#fff" />} textHeader={'Pack name'} numberSongs = {'4 hours'} textType = {'Category name'} />
-            </View>
+            </View> */}
 
-        </ScrollView>
+      <View
+          style={{
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            paddingHorizontal: 16,
+          }}
+        >
+            {dataMusic.map((element, index) => {
+                  return (
+                    <View key={index}>
+                      <Album image={element.image} title={element.title} numberSong={element.numberSong} category={element.category}/>
+                    </View>
+                  );
+                })}
+          {/* </View>
+      </View> */}
       </View>
+      </ScrollView>
     </View>
   )
 }
@@ -128,6 +149,7 @@ const styles = StyleSheet.create({
   },
   listAlbums:{
     height:Dimensions.get('window').height - 200,
+    marginTop:20
   }
   
 })

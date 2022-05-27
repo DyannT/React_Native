@@ -1,16 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import React,{useState} from 'react'
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
-const cardSound = ({icon,text}) => {
+const cardSound = ({icon,text,bColor}) => {
+  const [bgColor,setBGColor] = useState(false);
+  // const [active,setActive] = useState(true)
   return (
-    <View>
-      <View style={styles.topCard}>
+    <TouchableOpacity  onPress={() => setBGColor(!bgColor)}>
+      <View style={[styles.topCard,{backgroundColor:bgColor===false ? "#21283F" : bColor  } ]}>
             {icon}
       </View>
       <View style={styles.bottomCard}>
             <Text style={styles.textBottomCard}>{text}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
