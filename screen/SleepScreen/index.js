@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,ScrollView,Dimensions } from 'react-native'
+import { StyleSheet, Text, View,ScrollView,Dimensions,TouchableOpacity } from 'react-native'
 
 import HeaderTitle from '../../components/headerTitle'
 import Tag from '../../components/Tag';
@@ -14,8 +14,10 @@ import Forest from '../../assets/image/album4.png';
 import Moon1 from '../../assets/image/album5.png';
 import Sea from '../../assets/image/album6.png';
 
+import Profile from '../Profile/index';
 
-
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 import React from 'react'
 
@@ -67,8 +69,10 @@ const SleepScreen = () => {
       category: "Instrumental",
     },
   ];
-
+  function HomeScreen({ navigation }) {
   return (
+
+
     <View style={styles.container}>
       {/* HeaderTitle */}
       <View>
@@ -118,9 +122,9 @@ const SleepScreen = () => {
         >
             {dataMusic.map((element, index) => {
                   return (
-                    <View key={index}>
+                    <TouchableOpacity key={index} onPress={() => navigation.navigate('Details')}>
                       <Album image={element.image} title={element.title} numberSong={element.numberSong} category={element.category}/>
-                    </View>
+                    </TouchableOpacity>
                   );
                 })}
           {/* </View>
@@ -129,7 +133,20 @@ const SleepScreen = () => {
       </ScrollView>
     </View>
   )
-}
+  } 
+
+     
+  const Stack = createNativeStackNavigator();
+  return (
+    
+    <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="Details" component={Profile}  options={{ headerShown: false }}/>
+      </Stack.Navigator>
+    
+  );
+};
+
 
 export default SleepScreen
 
